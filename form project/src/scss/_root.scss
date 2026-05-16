@@ -1,0 +1,17 @@
+@use "variables" as v;
+
+:root {
+  --lime: #{v.$Lime};
+  --red: #{v.$Red};
+  --white: #{v.$White};
+  --slate-100: #{v.$Slate-100};
+  --slate-300: #{v.$Slate-300};
+  --slate-500: #{v.$Slate-500};
+  --slate-700: #{v.$Slate-700};
+  --slate-900: #{v.$Slate-900};
+
+  --font-family: #{v.$font-family};
+  --font-size-body: #{v.$font-size-body};
+  --weight-500: #{v.$weight-500};
+  --weight-700: #{v.$weight-700};
+}

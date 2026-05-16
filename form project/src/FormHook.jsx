@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 
-export const MortgageFormHook = () => {
+export const MortgageFormHook = ({ Calculate }) => {
   const {
     register,
     handleSubmit,
@@ -16,8 +15,6 @@ export const MortgageFormHook = () => {
       type: "",
     },
   });
-
-  const [result, setResult] = useState(null);
 
   const onSubmit = (formData) => {
     const P = parseFloat(formData.amount);
@@ -37,7 +34,7 @@ export const MortgageFormHook = () => {
       total = monthly * n + P;
     }
 
-    setResult({
+    Calculate({
       monthlyPayment: monthly.toFixed(2),
       totalPayment: total.toFixed(2),
     });
@@ -45,7 +42,7 @@ export const MortgageFormHook = () => {
 
   const handleReset = () => {
     reset();
-    setResult(null);
+    Calculate(null);
   };
 
   return (
@@ -106,16 +103,6 @@ export const MortgageFormHook = () => {
         </div>
         <button type="submit">Calculate Repayments</button>
       </form>
-
-      <div className="result__cont">
-        {result && (
-          <div>
-            <h2>Results</h2>
-            <p>Monthly Payment: {result.monthlyPayment}</p>
-            <p>Total Payment: {result.totalPayment}</p>
-          </div>
-        )}
-      </div>
     </div>
   );
 };
