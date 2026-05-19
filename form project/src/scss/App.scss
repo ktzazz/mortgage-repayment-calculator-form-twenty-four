@@ -1,0 +1,43 @@
+@use "mixins" as m;
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+.main__container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  height: 100%;
+
+  @include m.responsive(tablet) {
+    margin: calc(m.rem(55) + 2vh);
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    height: min(70%, m.rem(650));
+    width: min(80%, m.rem(1100));
+    border-radius: m.rem(25);
+  }
+  @include m.responsive(desktop) {
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    height: min(50%, m.rem(600));
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: m.rem(12);
+  text-align: center;
+  font-size: m.rem(11);
+  color: var(--slate-500);
+
+  & a {
+    color: var(--slate-700);
+  }
+}

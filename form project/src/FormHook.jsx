@@ -1,3 +1,4 @@
+import "./scss/FormHook.scss";
 import { useForm } from "react-hook-form";
 
 export const MortgageFormHook = ({ Calculate }) => {
@@ -46,7 +47,7 @@ export const MortgageFormHook = ({ Calculate }) => {
   };
 
   return (
-    <div>
+    <div className="form__container">
       <form onSubmit={handleSubmit(onSubmit)}>
         <h1>Mortgage Calculator</h1>
         <button type="button" onClick={handleReset}>
